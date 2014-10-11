@@ -1,7 +1,6 @@
 # create necessary directory
 
 mkdir ~/opt
-
 cd ~/opt
 
 
@@ -16,19 +15,23 @@ rm android-ndk64-r10b-darwin-x86_64.tar.bz2
 ln -s android-ndk-r10b android-ndk
 
 # Homebrew
-
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+
+## fish-shell
 brew install fish
-
 chsh -s /usr/local/bin/fish
-
 git clone git://github.com/bpinto/oh-my-fish.git ~/.oh-my-fish
-
 curl https://raw.githubusercontent.com/francisl/dotfiles/master/config.fish > ~/.config/fish/config.fish
-
 
 
 ## ZSH
 cd ~
 ln -sf .dotfiles/zpreztorc .zpreztorc
+
+
+
+
+## set environment for bash/ZSH
+
+ln -sf .dotfiles/bashrc ~/.bashrc

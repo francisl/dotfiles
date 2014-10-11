@@ -11,9 +11,9 @@ export PATH=$PATH:$HOME/opt/mongodb/bin
 export DEVAPPS=$HOME/devapps
 
 # JAVA FAMILY
-export SCALA_HOME=$HOME/opt/scala
-export PATH=$PATH:$HOME/opt/scala/bin
-export PATH=$PATH:$HOME/opt/kotlinc/bin
+#export SCALA_HOME=$HOME/opt/scala
+#export PATH=$PATH:$HOME/opt/scala/bin
+#export PATH=$PATH:$HOME/opt/kotlinc/bin
 export M2_HOME=$HOME/opt/apache-maven-3.2.1
 export M2=$M2_HOME/bin
 export PATH=$PATH:$M2

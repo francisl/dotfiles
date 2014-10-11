@@ -26,3 +26,9 @@ chsh -s /usr/local/bin/fish
 git clone git://github.com/bpinto/oh-my-fish.git ~/.oh-my-fish
 
 curl https://raw.githubusercontent.com/francisl/dotfiles/master/config.fish > ~/.config/fish/config.fish
+
+
+
+## ZSH
+cd ~
+ln -sf .dotfiles/zpreztorc .zpreztorc

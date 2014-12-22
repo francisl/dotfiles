@@ -13,9 +13,6 @@
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
-[submodule "pyflakes-pathogen"]
-	path = pyflakes-pathogen
-	url = https://github.com/mitechie/pyflakes-pathogen.git
 [submodule "vim/bundle/ack"]
 	path = vim/bundle/ack
 	url = https://github.com/mileszs/ack.vim.git

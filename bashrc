@@ -1,4 +1,7 @@
 # color in terminal
+
+set -o vi
+
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 

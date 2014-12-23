@@ -1,6 +1,7 @@
 syntax on
 filetype indent plugin on
 set modeline
+set number
 filetype plugin indent on    " enable loading indent file for filetype
 let mapleader=","
 

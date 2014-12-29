@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 
 ## ANDROID
 wget http://dl.google.com/android/android-sdk_r23.0.2-macosx.zip

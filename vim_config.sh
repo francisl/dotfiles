@@ -16,3 +16,7 @@ sudo pip install rope
 sudo pip install ropemode
 sudo pip install ropevim
 sudo pip install pep8
+cd vim/bundle/ropevim
+sudo python setup.py install
+cd ~/dotfiles
+

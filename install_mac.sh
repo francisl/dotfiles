@@ -23,3 +23,6 @@ fi
 brew install fish
 #chsh -s /usr/local/bin/fish
 
+## VIM OSX
+#brew install vim --override-system-vim --without-python
+

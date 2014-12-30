@@ -9,7 +9,6 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export LC_ALL=en_CA.UTF-8
 
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=$HOME/opt/bin:$PATH
 export PATH=$PATH:$HOME/opt/mongodb/bin
 export DEVAPPS=$HOME/devapps

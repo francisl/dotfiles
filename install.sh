@@ -41,6 +41,9 @@ ln -sf ~/dotfiles/zpreztorc .zpreztorc
 ~/dotfiles/vim_config.sh 
 
 
+## 
+
+
 # RETURN HOME
 cd ~
 

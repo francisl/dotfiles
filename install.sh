@@ -37,6 +37,14 @@ cd ~
 ln -sf ~/dotfiles/zpreztorc .zpreztorc
 
 
+## JAVA
+if [ ! -e eclim_2.4.0.jar ]; then
+    wget http://downloads.sourceforge.net/project/eclim/eclim/2.4.0/eclim_2.4.0.jar
+fi
+home=$HOME
+echo "HOME ============= $home"
+java -Dvim.files=$home/.vim -Declipse.home=$home/opt/eclipse -jar eclim_2.4.0.jar install
+
 ## VIM
 ~/dotfiles/vim_config.sh 
 

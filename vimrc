@@ -5,6 +5,16 @@ set number
 filetype plugin indent on    " enable loading indent file for filetype
 let mapleader=","
 
+set exrc " load local vimrc for custom project
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set noexpandtab
+set colorcolumn=110
+highlight ColorColumn ctermbg=darkgray
+
+
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -28,3 +38,9 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
+
+" C++
+let &path.="src/include,/usr/include/AL,"
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
+

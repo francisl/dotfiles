@@ -43,3 +43,6 @@
 [submodule "vim/bundle/pyflakes-pathogen"]
 	path = vim/bundle/pyflakes-pathogen
 	url = https://github.com/mitechie/pyflakes-pathogen.git
+[submodule "vim/bundle/YouCompleteMe"]
+	path = vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git

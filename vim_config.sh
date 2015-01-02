@@ -20,3 +20,11 @@ cd vim/bundle/ropevim
 sudo python setup.py install
 cd ~/dotfiles
 
+sudo pip install neovim
+
+# c/c++
+
+cd ~/.vim/bundle/YouCompleteMe
+git submodule update --init --recursive
+./install.sh --clang-completer # --system-clang
+

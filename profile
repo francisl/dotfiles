@@ -51,7 +51,7 @@ fi
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-if [[ -e $HOME/.local_profile ]]; then
+if [[ -z $HOME/.local_profile ]]; then
     . $HOME/.local_profile
 fi
 

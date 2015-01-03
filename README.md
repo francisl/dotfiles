@@ -1,5 +1,7 @@
 
+## Mac and Linux
 
+    bash <(curl -fsSL https://raw.githubusercontent.com/francisl/dotfiles/master/bootstrap.sh)
 
 1. Install git
 

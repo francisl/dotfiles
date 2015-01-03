@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
 
+# Homebrew
+brewbin=`which brew`
+if [ ! -e $brewbin ]; then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+
 ## ANDROID
 if [ ! -e ~/opt/android-sdk ]; then
 	cd ~/opt
@@ -21,11 +28,6 @@ if [ ! -e ~/opt/eclipse ]; then
     tar -zxf eclipse-java-luna-SR1-macosx-cocoa-x86_64.tar.gz
 fi
 
-# HomebrewA
-brewbin=`which brew`
-if [ ! -e $brewbin ]; then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
 
 ## fish-shell
 if [ ! -e `which fish` ]; then

@@ -1,6 +1,6 @@
 # color in terminal
 
-set -o vi
+#set -o vi
 
 HISTSIZE=10000
 SAVEHIST=10000

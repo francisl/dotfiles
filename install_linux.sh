@@ -2,10 +2,11 @@
 
 ln -s ~/dotfiles/inputrc ~/.inputrc
 
-sudo apt-get install fish
-sudo apt-get install vim
-sudo apt-get install emacs
-sudo apt-get install setuptools
+sudo apt-get -y install fish
+sudo apt-get -y install vim
+sudo apt-get -y install emacs
+sudo apt-get -y install setuptools
+sudo apt-get -y install cmake
 
 
 #c chsh -s /usr/bin/fish

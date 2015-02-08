@@ -1,6 +1,9 @@
 # color in terminal
 
 #set -o vi
+if [ "$0" == 'bash' ]; then 
+    export PS1="\[\e[01;32m\]\u\[\e[0m\]\[\e[00;36m\]@\[\e[0m\]\[\e[00;34m\]\h\[\e[0m\]\[\e[00;33m\]:\[\e[0m\]\[\e[00;35m\]\W\[\e[0m\]\[\e[00;37m\] \A [\$?] >> \[\e[0m\]"
+fi
 
 HISTSIZE=10000
 SAVEHIST=10000

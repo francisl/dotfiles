@@ -21,8 +21,10 @@ fi
 ## set environment for bash/ZSH
 if [[ "$platform" == 'Linux' ]]; then
     ln -sf ~/dotfiles/profile ~/.bash_profile
+	ln -sf ~/dotfiles/bashrc ~/.bashrc
 elif [[ "$platform" == 'Darwin' ]]; then
     ln -sf ~/dotfiles/profile ~/.profile
+	ln -sf ~/dotfiles/bashrc ~/.bashrc
 fi
 
 ## Setup OH-MY-FISH

@@ -30,4 +30,4 @@ cd ~/dotfiles
 git fetch --all
 git reset --hard origin/master
 
-./install.sh
+./scripts/install.sh

@@ -12,7 +12,7 @@ git clone git@github.com:francisl/dotfiles.git
 
 ## On Mac and Linux
 
-    ./install.sh
+    ./scripts/install.sh
 
 
 

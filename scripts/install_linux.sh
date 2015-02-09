@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ln -s ~/dotfiles/inputrc ~/.inputrc
+# ln -s ~/dotfiles/config/inputrc ~/.inputrc
 
 sudo apt-get -y install fish
 sudo apt-get -y install vim

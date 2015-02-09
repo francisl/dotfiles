@@ -37,8 +37,13 @@ fi
 #chsh -s /usr/local/bin/fish
 
 ## VIM OSX
-#brew install vim --override-system-vim --without-python
+brew install vim --override-system-vim --without-python
 if [ ! `which nvim` ]; then
     brew tap neovim/homebrew-neovim
     brew install --HEAD neovim
 fi 
+
+echo "Updating brew"
+brew update
+brew upgrade
+

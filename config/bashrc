@@ -1,4 +1,5 @@
 # color in terminal
+echo "Reading bashrc .."
 
 #set -o vi
 if [ "$0" == 'bash' ]; then 

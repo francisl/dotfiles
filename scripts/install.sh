@@ -26,7 +26,7 @@ elif [[ "$platform" == 'Darwin' ]]; then
         mv ~/.profile ~/.local_profile
     fi
 	ln -sf ~/dotfiles/config/bashrc ~/.bashrc
-	ln -sf ~/dotfiles/config/bashrc ~/.bash_profile
+	ln -sf ~/dotfiles/config/bash_profile ~/.bash_profile
 fi
 
 ## Setup OH-MY-FISH
@@ -53,7 +53,7 @@ if [ ! -e eclim_2.4.0.jar ]; then
 fi
 
 ## VIM
-~/dotfiles/vim/vim_config.sh 
+~/dotfiles/scripts/vim_config.sh 
 
 # RETURN HOME
 cd ~

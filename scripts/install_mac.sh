@@ -1,4 +1,4 @@
-!/usr/bin/env bash
+#!/usr/bin/env bash
 
 ## ANDROID
 if [ ! -e ~/opt/android-sdk ]; then
@@ -30,6 +30,11 @@ if [ ! -e ~/opt/eclipse ]; then
 fi
 
 
+## BREW
+echo "Updating brew"
+brew update
+brew upgrade
+
 ## fish-shell
 if [ ! `which fish` ]; then
     brew install fish
@@ -43,7 +48,8 @@ if [ ! `which nvim` ]; then
     brew install --HEAD neovim
 fi 
 
-echo "Updating brew"
-brew update
-brew upgrade
-
+## EMACS
+brew install emacs --HEAD --cocoa --srgb
+ln -s /usr/local/Cellar/emacs/24.3/Emacs.app /Applications
+sudo rm /usr/bin/emacs
+sudo rm -rf /usr/share/emacs

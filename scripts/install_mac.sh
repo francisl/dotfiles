@@ -54,7 +54,7 @@ if [ ! `which nvim` ]; then
 fi 
 
 ## EMACS
-brew install emacs --HEAD --cocoa --srgb
+brew install emacs --HEAD --with-cocoa --srgb
 ln -s /usr/local/Cellar/emacs/24.3/Emacs.app /Applications
 sudo rm /usr/bin/emacs
 sudo rm -rf /usr/share/emacs

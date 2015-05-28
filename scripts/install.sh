@@ -6,22 +6,16 @@ platform=`uname`
 mkdir ~/opt
 cd ~/opt
 
-if [[ "$platform" == 'Linux' ]]; then
-    ~/dotfiles/scripts/install_linux.sh
-elif [[ "$platform" == 'Darwin' ]]; then
-    ~/dotfiles/scripts/install_mac.sh
-fi
-
 ## set environment for bash/ZSH
 if [[ "$platform" == 'Linux' ]]; then
-	
+    ~/dotfiles/scripts/install_linux.sh	
     if [ -e ~/.bashrc -a ! -e ~/.local_profile ];then
         mv ~/.bashrc ~/.local_profile
     fi
 	ln -sf ~/dotfiles/config/bashrc ~/.bashrc
 
 elif [[ "$platform" == 'Darwin' ]]; then
-
+    ~/dotfiles/scripts/install_mac.sh
     if [ -e ~/.profile -a ! -e ~/.local_profile ];then
         mv ~/.profile ~/.local_profile
     fi
@@ -35,7 +29,6 @@ if [ ! -e ~/.config/fish ];then
     curl https://raw.githubusercontent.com/francisl/dotfiles/master/config/config.fish > ~/.config/fish/config.fish
 fi
 
-
 ## ZSH
 cd ~
 ln -sf ~/dotfiles/zpreztorc .zpreztorc
@@ -44,7 +37,6 @@ ln -sf ~/dotfiles/zpreztorc .zpreztorc
 ## JAVA
 if [ ! -e eclim_2.4.0.jar ]; then
     wget http://downloads.sourceforge.net/project/eclim/eclim/2.4.0/eclim_2.4.0.jar
-
 
     home=$HOME
     echo "HOME ============= $home"

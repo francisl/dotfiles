@@ -2,9 +2,12 @@
 echo "Reading bashrc .."
 
 #set -o vi
-if [ "$0" == '-/bin/bash' ]; then 
+if [ "$0" == '/bin/bash' ]; then 
     export PS1="\[\e[01;32m\]\u\[\e[0m\]\[\e[00;36m\]@\[\e[0m\]\[\e[00;34m\]\h\[\e[0m\]\[\e[00;33m\]:\[\e[0m\]\[\e[00;35m\]\W\[\e[0m\]\[\e[00;37m\] \A [\$?] >> \[\e[0m\]"
 fi
+
+export VISUAL=emacs
+export EDITOR="$VISUAL"
 
 HISTSIZE=10000
 SAVEHIST=10000
@@ -13,22 +16,15 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export LC_ALL=en_CA.UTF-8
 
-export PATH=$HOME/opt/bin:$PATH
 export PATH=$PATH:$HOME/opt/mongodb/bin
 export DEVAPPS=$HOME/devapps
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 
 # JAVA FAMILY
-export JAVA_HOME=$(/usr/libexec/java_home)
-export GRADLE_HOME=~/opt/gradle/bin
-export M2_HOME=$HOME/opt/apache-maven-3.2.1
-export M2=$M2_HOME/bin
-export PATH=$PATH:$M2:$GRADLE_HOME
-
-# ANDROID
-export ANDROID_SDK_HOME=$HOME/opt/android-sdk
-export ANDROID_HOME=$ANDROID_SDK_HOME
+export JAVA_HOME="`/usr/libexec/java_home`"
+export MAVEN_DEBUG_OPTS="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000"
+export MAVEN_OPTS="-Xms1024m -Xmx1024m -noverify -XX:MaxMetaspaceSize=760m"
 
 # PYTHON PATH
 export PYTHONPATH=$PYTHONPATH:~/Programmation/python/apps
@@ -36,9 +32,6 @@ export PYTHONPATH=$PYTHONPATH:~/Programmation/python/apps
 # ALIASES
 # Django
 alias pyma="python manage.py"
-alias pyrunserv="djma runserver"
-alias djrun='djma runserver_plus 0.0.0.0:8000'
-alias djserv=pyrunserv
 alias djshell="pyma shell"
 
 # SMTP SERVER DEV
@@ -50,5 +43,19 @@ alias glog='git log --graph --decorate --pretty=oneline --abbrev-commit'
 if [[ -z $HOME/.local_profile ]]; then
     . $HOME/.local_profile
 fi
-echo "bashrc completed"
+
++### APPDIRECT
+alias watch-template='cd /var/appdirect/AppDirect/appdirect-parent/appdirect/; mvn validate -P fe-resources && gulp watch:legacy -P src/main/java/com/appdirect/wicket/'
+alias watch-css='cd /var/appdirect/AppDirect/appdirect-parent/appdirect/; gulp build:css watch:css'
+
+cat << EndOf
+         _.._..,_,_
+        (          )
+         ]~,"-.-~~[
+       .=])' (;  ([
+       | ]:: '    [
+       '=]): .)  ([
+         |:: '    |
+          ~~----~~
+EndOf
 

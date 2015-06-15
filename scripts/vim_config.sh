@@ -24,7 +24,7 @@ sudo pip install neovim
 
 # c/c++
 
-cd ~/.vim/bundle/YouCompleteMe
-git submodule update --init --recursive
-./install.sh --clang-completer # --system-clang
+# cd ~/.vim/bundle/YouCompleteMe
+# git submodule update --init --recursive
+# ./install.sh --clang-completer # --system-clang
 

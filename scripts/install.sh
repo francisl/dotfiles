@@ -23,26 +23,19 @@ elif [[ "$platform" == 'Darwin' ]]; then
 	ln -sf ~/dotfiles/config/bash_profile ~/.bash_profile
 fi
 
-## Setup OH-MY-FISH
+## Fish shell
+
+### Setup OH-MY-FISH
 if [ ! -e ~/.config/fish ];then
-    git clone git://github.com/bpinto/oh-my-fish.git ~/.oh-my-fish
-    curl https://raw.githubusercontent.com/francisl/dotfiles/master/config/config.fish > ~/.config/fish/config.fish
+    curl -L https://github.com/bpinto/oh-my-fish/raw/master/tools/install.fish | fish
 fi
+
+### Fish config
+ln -fs ~/dotfiles/config/config.fish ~/.config/fish/config.fish
 
 ## ZSH
 cd ~
 ln -sf ~/dotfiles/zpreztorc .zpreztorc
-
-
-## JAVA
-if [ ! -e eclim_2.4.0.jar ]; then
-    wget http://downloads.sourceforge.net/project/eclim/eclim/2.4.0/eclim_2.4.0.jar
-
-    home=$HOME
-    echo "HOME ============= $home"
-    java -Dvim.files=$home/.vim -Declipse.home=$home/opt/eclipse -jar eclim_2.4.0.jar install
-
-fi
 
 ## VIM
 ~/dotfiles/scripts/vim_config.sh 

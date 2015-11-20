@@ -8,7 +8,7 @@ cd ~/opt
 
 ## set environment for bash/ZSH
 if [[ "$platform" == 'Linux' ]]; then
-    ~/dotfiles/scripts/install_linux.sh	
+    ~/dotfiles/scripts/install_linux.sh
     if [ -e ~/.bashrc -a ! -e ~/.local_profile ];then
         mv ~/.bashrc ~/.local_profile
     fi
@@ -23,23 +23,11 @@ elif [[ "$platform" == 'Darwin' ]]; then
 	ln -sf ~/dotfiles/config/bash_profile ~/.bash_profile
 fi
 
-## Fish shell
-
-### Setup OH-MY-FISH
-if [ ! -e ~/.config/fish ];then
-    curl -L https://github.com/bpinto/oh-my-fish/raw/master/tools/install.fish | fish
-fi
-
-### Fish config
-ln -fs ~/dotfiles/config/config.fish ~/.config/fish/config.fish
-
 ## ZSH
-cd ~
-ln -sf ~/dotfiles/zpreztorc .zpreztorc
+~/dotfiles/plugins/zsh.sh
 
-## VIM
-~/dotfiles/scripts/vim_config.sh 
+# Node
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
 
 # RETURN HOME
 cd ~
-

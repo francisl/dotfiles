@@ -18,8 +18,6 @@ elif [[ "$platform" == 'Darwin' ]]; then
     fi
     brew install git wget
 fi
-sudo easy_install pip
-
 
 cd ~
 if [ ! -z ~/dotfiles ]; then

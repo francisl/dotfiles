@@ -1,8 +1,7 @@
 # color in terminal
 echo "Reading bashrc .."
 
-#set -o vi
-if [ "$0" == '/bin/bash' ]; then 
+if [[ "$0" = '/bin/bash' ]]; then
     export PS1="\[\e[01;32m\]\u\[\e[0m\]\[\e[00;36m\]@\[\e[0m\]\[\e[00;34m\]\h\[\e[0m\]\[\e[00;33m\]:\[\e[0m\]\[\e[00;35m\]\W\[\e[0m\]\[\e[00;37m\] \A [\$?] >> \[\e[0m\]"
 fi
 
@@ -39,14 +38,23 @@ alias smtpserv='python -m smtpd -n -c DebuggingServer localhost:1025'
 
 # Git
 alias glog='git log --graph --decorate --pretty=oneline --abbrev-commit'
+alias gcommit='git commit -m '
+alias grebase='git rebase -i '
+alias gdoh='git checkout -- '
 
 if [[ -z $HOME/.local_profile ]]; then
     . $HOME/.local_profile
 fi
 
-+### APPDIRECT
-alias watch-template='cd /var/appdirect/AppDirect/appdirect-parent/appdirect/; mvn validate -P fe-resources && gulp watch:legacy -P src/main/java/com/appdirect/wicket/'
-alias watch-css='cd /var/appdirect/AppDirect/appdirect-parent/appdirect/; gulp build:css watch:css'
+### APPDIRECT
+export AD_ROOT='/var/appdirect/AppDirect'
+export AD_PARENT=${AD_ROOT}'/appdirect-parent'
+alias watch-legacy='cd $AD_PARENT/appdirect/; mvn validate -P fe-resources && gulp watch:legacy -P src/main/java/com/appdirect/wicket/'
+alias watch-css='cd $AD_PARENT/appdirect/; gulp build:css watch:css'
+alias ad-tomcat='cd $AD_PARENT/appdirect/; mvn clean; mvn generate-sources; mvn tomcat7:run'
+alias ad-clean-install='cd $AD_PARENT/; mvn clean -U install; cd appdirect'
+alias ad-clean-install-no-test='cd $AD_PARENT/; mvn clean install -Dmaven.test.skip=true; cd appdirect'
+alias ad-rebase-master='git rebase -i appdirect/master'
 
 cat << EndOf
          _.._..,_,_
@@ -59,3 +67,18 @@ cat << EndOf
           ~~----~~
 EndOf
 
+cat << EndOf
+AppDirect Alias :
+   watch-legacy
+   watch-css
+   ad-tomcat
+   ad-clean-install
+   ad-clean-install-no-test
+   ad-rebase-master
+
+EndOf
+
+# NVM
+export NVM_DIR="~/.nvm"
+export PATH=./node_modules/.bin:$PATH
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

@@ -20,7 +20,6 @@ elif [[ "$platform" == 'Darwin' ]]; then
         mv ~/.profile ~/.local_profile
     fi
 	ln -sf ~/dotfiles/config/bashrc ~/.bashrc
-	ln -sf ~/dotfiles/config/bash_profile ~/.bash_profile
 fi
 
 ## ZSH

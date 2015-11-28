@@ -27,6 +27,7 @@ fi
 ~/dotfiles/plugins/zsh.sh
 
 # Node
+echo "Installing NVM"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
 
 # RETURN HOME

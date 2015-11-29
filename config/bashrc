@@ -30,6 +30,7 @@ export PYTHONPATH=$PYTHONPATH:~/Programmation/python/apps
 
 # ALIASES
 # Django
+alias ls="ls --color=auto"
 alias pyma="python manage.py"
 alias djshell="pyma shell"
 

@@ -1,0 +1,26 @@
+### APPDIRECT
+
+export JAVA_HOME="`/usr/libexec/java_home`"
+export MAVEN_DEBUG_OPTS="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000"
+export MAVEN_OPTS="-Xms1024m -Xmx1024m -noverify -XX:MaxMetaspaceSize=760m"
+
+export AD_ROOT='/var/appdirect/AppDirect'
+export AD_PARENT=${AD_ROOT}'/appdirect-parent'
+alias watch-legacy='cd $AD_PARENT/appdirect/; mvn validate -P fe-resources && gulp watch:legacy -P src/main/java/com/appdirect/wicket/'
+alias watch-css='cd $AD_PARENT/appdirect/; gulp build:css watch:css'
+alias ad-tomcat='cd $AD_PARENT/appdirect/; mvn generate-sources; mvn tomcat7:run'
+alias ad-clean-install='cd $AD_PARENT/; mvn clean -U install; cd appdirect'
+alias ad-clean-install-no-test='cd $AD_PARENT/; mvn clean install -Dmaven.test.skip=true; cd appdirect'
+alias ad-rebase-master='git rebase -i appdirect/master'
+
+
+cat << EndOf
+AppDirect Alias :
+   watch-legacy
+   watch-css
+   ad-tomcat
+   ad-clean-install
+   ad-clean-install-no-test
+   ad-rebase-master
+
+EndOf

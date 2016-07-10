@@ -1,0 +1,59 @@
+# color in terminal
+echo "Loading customrc .."
+
+if [[ "$0" = '/bin/bash' ]]; then
+    export PS1="\[\e[01;32m\]\u\[\e[0m\]\[\e[00;36m\]@\[\e[0m\]\[\e[00;34m\]\h\[\e[0m\]\[\e[00;33m\]:\[\e[0m\]\[\e[00;35m\]\W\[\e[0m\]\[\e[00;37m\] \A [\$?] >> \[\e[0m\]"
+fi
+
+export VISUAL=emacs
+export EDITOR="$VISUAL"
+
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.history
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+export LC_ALL=en_CA.UTF-8
+
+
+if [[ -d $HOME/opt/mongodb/bin ]]; then
+  export PATH=$PATH:$HOME/opt/mongodb/bin
+fi
+
+export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/bin:$PATH
+
+# JAVA FAMILY
+
+# ALIASES
+
+# SMTP SERVER DEV
+alias smtpserv='python -m smtpd -n -c DebuggingServer localhost:1025'
+
+# Git
+alias glog='git log --graph --decorate --pretty=oneline --abbrev-commit'
+alias gcommit='git commit -m '
+alias grebase='git rebase -i '
+alias gdoh='git checkout -- '
+
+# Node
+export PATH=./node_modules/.bin:$PATH
+
+# NVM
+export NVM_DIR="~/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+if [[ -z $HOME/.local_profile ]]; then
+    . $HOME/.local_profile
+fi
+
+cat << EndOf
+         _.._..,_,_
+        (          )
+         ]~,"-.-~~[
+       .=])' (;  ([
+       | ]:: '    [
+       '=]): .)  ([
+         |:: '    |
+          ~~----~~
+EndOf

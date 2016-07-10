@@ -9,3 +9,5 @@ fi
 zsh ~/dotfiles/plugins/zsh_config.zsh
 
 ln -sf ~/dotfiles/config/zpreztorc .zpreztorc
+
+chsh -s $(which zsh)

@@ -1,11 +1,9 @@
 # color in terminal
-echo "Reading bashrc .."
-
 if [[ "$0" = '/bin/bash' ]]; then
     export PS1="\[\e[01;32m\]\u\[\e[0m\]\[\e[00;36m\]@\[\e[0m\]\[\e[00;34m\]\h\[\e[0m\]\[\e[00;33m\]:\[\e[0m\]\[\e[00;35m\]\W\[\e[0m\]\[\e[00;37m\] \A [\$?] >> \[\e[0m\]"
 fi
 
-export VISUAL=emacs
+export VISUAL=vim
 export EDITOR="$VISUAL"
 
 HISTSIZE=10000
@@ -15,70 +13,156 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export LC_ALL=en_CA.UTF-8
 
+if [ "$TERM" = "xterm" ] || [ "$TERM" = "xterm-256color" ]
+then
+    export TERM=xterm-256color
+    export HAS_256_COLORS=yes
+fi
+if [ "$TERM" = "screen" ] && [ "$HAS_256_COLORS" = "yes" ]
+then
+    export TERM=screen-256color
+fi
+
+
 export PATH=$PATH:$HOME/opt/mongodb/bin
-export DEVAPPS=$HOME/devapps
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
+export PATH=${HOME}/.bin:${PATH}
+
+
+# LLVM
+export PATH=/usr/local/opt/llvm/bin:${PATH}
+export LLVM_DIR=/usr/local/opt/llvm/lib/cmake
+#export CC := /usr/local/opt/llvm/bin/clang
+# export CXX := $(CC)++
+export LDFLAGS="-L/usr/local/opt/llvm/lib"
+export CPPFLAGS="-I/usr/local/opt/llvm/include"
 
 # JAVA FAMILY
-export JAVA_HOME="`/usr/libexec/java_home`"
-export MAVEN_DEBUG_OPTS="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000"
-export MAVEN_OPTS="-Xms1024m -Xmx1024m -noverify -XX:MaxMetaspaceSize=760m"
-
-# PYTHON PATH
-export PYTHONPATH=$PYTHONPATH:~/Programmation/python/apps
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/"
+export JAVA_OPTS="-Xms2048m -Xmx3072m"
+export ANDROID_HOME=$HOME/Library/Android/sdk
 
 # ALIASES
-# Django
-alias pyma="python manage.py"
-alias djshell="pyma shell"
+## Generic
+alias grepctxt='grep -n -A 1 -B 1 --color '
 
 # SMTP SERVER DEV
 alias smtpserv='python -m smtpd -n -c DebuggingServer localhost:1025'
 
-# Git
+# Git Aliases
+alias gpush='git push'
 alias glog='git log --graph --decorate --pretty=oneline --abbrev-commit'
 alias gcommit='git commit -m '
 alias grebase='git rebase -i '
 alias gdoh='git checkout -- '
 
+# HOMEBREW
+export HOMEBREW_CASK_OPTS='--caskroom=/opt/homebrew-cask/Caskroom'
+export HOMEBREW_GITHUB_API_TOKEN="8e143dce1f0116c835140385643eaf4a06a0a776"
+
+# nim
+export PATH=$PATH:/Users/francis.lavoie/.nimble/bin
+
+# GOLANG
+export GOPATH=$HOME/workspace/test/workgo
+gocd () { cd `go list -f '{{.Dir}}' $1` }
+
+### SWIFT
+export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:"${PATH}"
+
+### Kotlin
+#### Kotlin native
+export PATH=${PATH}:~/opt/kotlin-native/bin
+
+### APPDIRECT
+alias watch-legacy='mvn validate -P fe-resources && gulp watch:legacy -P src/main/java/com/appdirect/wicket/'
+alias watch-css='gulp build:css watch:css'
+alias ad.tomcat='mvn compile; mvn -P local-skip tomcat7:run'
+alias ad.clean.install='mvn clean -U install'
+alias ad.clean.install.notest='mvn clean install -Dmaven.test.skip=true'
+alias ad.rebase.master='git rebase -i appdirect/master'
+
+## VPN
+alias vpn_batman="sudo openconnect --authgroup=Employee --user=francis.lavoie batman.appdirect.com"
+alias vpn_iceman="sudo openconnect --authgroup=Employee --user=francis.lavoie iceman.appdirect.com"
+
+## Docker
+ad-docker () {
+    action=${1-stop}
+    echo "Docker" $action "------"
+
+    list="db appdirectdb memcached rabbitmq jbilling"
+    for i in `echo $list`
+    do
+        docker $action $i
+        sleep 1
+    done
+}
+
+ad-docker-start() {
+    ad-docker start
+}
+
+ad-docker-stop() {
+    ad-docker stop
+}
+
+ad-docker-init () {
+    docker run --name appdirectdb -d -p 3306:3306            docker.appdirectondemand.com/appdirect/appdirectdb:latest
+    docker run --name memcached   -d -p 11211:11211          docker.appdirectondemand.com/appdirect/memcached:latest
+    docker run --name rabbitmq    -d -p 5672:5672            docker.appdirectondemand.com/appdirect/rabbitmq:latest
+    docker run --name db          -d -p 3307:3306            docker.appdirectondemand.com/appdirect/jbillingdb
+    docker run --name jbilling    -d -p 8088:8080  --link db docker.appdirectondemand.com/appdirect/jbilling
+}
+
+ad-docker-pull () {
+    docker pull docker.appdirectondemand.com/appdirect/appdirectdb:latest
+    docker pull docker.appdirectondemand.com/appdirect/memcached:latest
+    docker pull docker.appdirectondemand.com/appdirect/rabbitmq:latest
+    docker pull docker.appdirectondemand.com/appdirect/jbilling:latest
+    docker pull docker.appdirectondemand.com/appdirect/jbillingdb:latest
+}
+
+### JavaScript/Node
+
+tableflip () {
+  echo '(╯°□°）╯︵ ┻━┻'
+  rm -rf node_modules && npm cache clean && npm install
+}
+
 if [[ -z $HOME/.local_profile ]]; then
     . $HOME/.local_profile
 fi
 
-### APPDIRECT
-export AD_ROOT='/var/appdirect/AppDirect'
-export AD_PARENT=${AD_ROOT}'/appdirect-parent'
-alias watch-legacy='cd $AD_PARENT/appdirect/; mvn validate -P fe-resources && gulp watch:legacy -P src/main/java/com/appdirect/wicket/'
-alias watch-css='cd $AD_PARENT/appdirect/; gulp build:css watch:css'
-alias ad-tomcat='cd $AD_PARENT/appdirect/; mvn generate-sources; mvn tomcat7:run'
-alias ad-clean-install='cd $AD_PARENT/; mvn clean -U install; cd appdirect'
-alias ad-clean-install-no-test='cd $AD_PARENT/; mvn clean install -Dmaven.test.skip=true; cd appdirect'
-alias ad-rebase-master='git rebase -i appdirect/master'
-
 cat << EndOf
-         _.._..,_,_
-        (          )
-         ]~,"-.-~~[
-       .=])' (;  ([
-       | ]:: '    [
-       '=]): .)  ([
-         |:: '    |
-          ~~----~~
+
+     |\_/|
+     | @ @   Woof!
+     |   <>              _
+     |  _/\------____ ((| |))
+     |               \`--' |
+ ____|_       ___|   |___.'
+/_/_____/____/_______|
+
 EndOf
 
 cat << EndOf
-AppDirect Alias :
+AppDirect
    watch-legacy
    watch-css
-   ad-tomcat
-   ad-clean-install
-   ad-clean-install-no-test
-   ad-rebase-master
+   ad.tomcat
+   ad.clean.install
+   ad.clean.install.notest
+   ad.rebase.master
 
+   ad-docker-vm-start
+   ad-docker [action]       # e.g. ad-docker stop , ad-docket start
+   ad-docker-start          # shorthand for ad-docker start
+   ad-docker-stop           # shorthand for ad-docker stop
+   ad-docker-init           # initiase new docker machine
+
+General
+   JavaScript/Node:     tableflip (clean all)
 EndOf
 
-# NVM
-export NVM_DIR="~/.nvm"
-export PATH=./node_modules/.bin:$PATH
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

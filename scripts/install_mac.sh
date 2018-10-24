@@ -16,6 +16,8 @@ brew upgrade
 # fi
 
 ## EMACS
+echo "Installing Emacs"
+brew unlink emacs
 brew install emacs --with-cocoa
 cp -r /usr/local/Cellar/emacs/24.5/Emacs.app /Applications
 sudo rm /usr/bin/emacs

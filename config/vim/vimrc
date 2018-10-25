@@ -1,0 +1,84 @@
+" Help: https://www.cs.oberlin.edu/~kuperman/help/vim/selection.html
+
+" https://github.com/tpope/vim-pathogen
+" mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+" curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+execute pathogen#infect()
+syntax on
+colo southernlights
+filetype plugin indent on
+
+
+" Cursor
+"
+highlight Cursor guifg=white guibg=black
+highlight iCursor guifg=white guibg=steelblue
+set guicursor=n-v-c:block-Cursor
+set guicursor+=i:ver10-iCursor
+set guicursor+=a:blinkon500
+set guicursor+=a:blinkoff500
+
+
+" Syntastic
+" https://github.com/vim-syntastic/syntastic
+" git clone --depth=1 https://github.com/vim-syntastic/syntastic.git ~/.vim/bundle/syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = 'npm run lint --'
+
+" Formating
+autocmd Filetype *.js* setlocal tabstop=3
+autocmd Filetype *.js* setlocal shiftwidth=3
+
+" Remove trailing whitespace
+autocmd BufWritePre *.js* :%s/\s\+$//e
+
+
+" netrw config (file navigator)
+"
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+" 1 - open files in a new horizontal split
+" 2 - open files in a new vertical split
+" 3 - open files in a new tab
+" 4 - open in previous window
+let g:netrw_browse_split = 2
+let g:netrw_winsize = 22
+let g:netrw_altv = 1
+map <C-n> :Vexplore<CR>
+" augroup ProjectDrawer
+"   autocmd!
+"  autocmd VimEnter * :Vexplore
+" augroup END
+
+" NERDTree
+" https://github.com/scrooloose/nerdtree
+" git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd VimEnter * NERDTree
+" map <C-n> :NERDTreeToggle<CR>
+
+" Tabs navigation
+map <C-t><up> :tabr<cr>
+map <C-t><down> :tabl<cr>
+map <C-t><left> :tabp<cr>
+map <C-t><right> :tabn<cr>
+
+
+" ctrlp
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+set wildignore+=*/tmp/*,*/node_modules/*,*/coverage/*,*/lib/*,*.so,*.swp,*.zip     " Linux/MacOSX
+
+" Rust
+"
+" git clone --depth=1 https://github.com/rust-lang/rust.vim.git ~/.vim/bundle/rust.vim
+let g:rustfmt_autosave = 1

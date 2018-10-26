@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 
 DOTFILES_DIR=${PWD}
-echo $DOTFILES_DIR
-
 mkdir -p ~/.vim
 mkdir -p ~/.vim/colors
-cp -rf config/vim/colors/* ~/.vim/colors
-ln -sf config/vim/vimrc ~/.vim/vimrc
+cp -rf $DOTFILES_DIR/config/vim/colors/* ~/.vim/colors
+ln -sf $DOTFILES_DIR/config/vim/vimrc ~/.vim/vimrc
 
 updateBundle() {
     git fetch --all

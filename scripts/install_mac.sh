@@ -15,6 +15,12 @@ brew upgrade
 #     brew install node
 # fi
 
+
+## ocaml
+### use in emacs for reason
+brew install ocaml
+brew install opam
+
 ## EMACS
 echo "Installing Emacs"
 brew unlink emacs

@@ -159,3 +159,5 @@ zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
 . ~/.customrc
+
+echo "------------------->"

@@ -26,19 +26,7 @@ if [[ -d $HOME/.bin ]]; then
   export PATH=${HOME}/.bin:${PATH}
 fi
 
-# LLVM
-if [[ -d usr/local/opt/llvm ]]; then
-  export PATH=/usr/local/opt/llvm/bin:${PATH}
-  export LLVM_DIR=/usr/local/opt/llvm/lib/cmake
-  export LDFLAGS="-L/usr/local/opt/llvm/lib"
-  export CPPFLAGS="-I/usr/local/opt/llvm/include"
-fi
-
-
-if [[ -d $HOME/.nimble ]]; then
-  export PATH=$PATH:$HOME/.nimble/bin
-fi
-
+export PATH=$PATH:~/sdk/flutter/bin
 
 # ALIASES
 ## Generic
@@ -69,6 +57,8 @@ if [[ -z $HOME/.local_profile ]]; then
     . $HOME/.local_profile
 fi
 
+export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/\~}\007"'
+
 cat << EndOf
 
      |\_/|
@@ -86,6 +76,3 @@ cat << EndOf
 General
    JavaScript/Node:     tableflip (clean all)
 EndOf
-
-. ~/dotfiles/config/appdirect
-

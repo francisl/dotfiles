@@ -10,17 +10,6 @@ echo "Updating brew"
 brew update
 brew upgrade
 
-#
-# if [ ! `which node` ]; then
-#     brew install node
-# fi
-
-
-## ocaml
-### use in emacs for reason
-brew install ocaml
-brew install opam
-
 ## EMACS
 echo "Installing Emacs"
 brew unlink emacs

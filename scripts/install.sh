@@ -13,18 +13,19 @@ elif [[ "$platform" == 'Darwin' ]]; then
     ~/dotfiles/scripts/install_mac.sh
 fi
 
-if [ ! -e ~/.local_profile ];then
-  echo >> ~/.bashrc
-  echo . ~/dotfiles/config/customrc >> ~/.bashrc
+if [ ! -e ~/.z_custom_profile ];then
+  echo >> ~/.zprofile
+  echo . ~/dotfiles/config/z_custom_profile >> ~/.zprofile
 fi
 
 ## ZSH
-~/dotfiles/plugins/zsh.sh
+~/dotfiles/script/zsh.sh
 
-# Node
-echo "Installing NVM"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+## NODE
+~/dotfiles/scripts/node/nvm.sh
 
+## SDKMAN
+~/dotfiles/scripts/jvm/sdkman.sh
 
 # RETURN HOME
 cd ~

@@ -1,9 +1,5 @@
-# color in terminal
-if [[ "$0" = '/bin/bash' ]]; then
-    export PS1="\[\e[01;32m\]\u\[\e[0m\]\[\e[00;36m\]@\[\e[0m\]\[\e[00;34m\]\h\[\e[0m\]\[\e[00;33m\]:\[\e[0m\]\[\e[00;35m\]\W\[\e[0m\]\[\e[00;37m\] \A [\$?] >> \[\e[0m\]"
-fi
 
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 HISTSIZE=10000
@@ -11,16 +7,12 @@ SAVEHIST=10000
 HISTFILE=~/.history
 
 export CLICOLOR=1
-export LSCOLORS=ExFxCxDxBxegedabagacad
 export LC_ALL=en_CA.UTF-8
-
-
-if [[ -d $HOME/opt/mongodb/bin ]]; then
-  export PATH=$PATH:$HOME/opt/mongodb/bin
-fi
 
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
+
+ZSH_THEME="af-magic"
 
 # Local .bin
 if [[ -d $HOME/.bin ]]; then
@@ -43,20 +35,29 @@ alias gdoh='git checkout -- '
 
 # Node
 export PATH=./node_modules/.bin:$PATH
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 ### JavaScript/Node
 
-tableflip () {
+jstableflip () {
   echo '(╯°□°）╯︵ ┻━┻'
   rm -rf node_modules && npm cache clean && npm install
 }
 
+# JVM
+#
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/francislavoie/.sdkman"
+[[ -s "/Users/francislavoie/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/francislavoie/.sdkman/bin/sdkman-init.sh"
 
-if [[ -f $HOME/.customrc ]]; then
-    . $HOME/.customrc
-fi
+export PATH=/Library/Java/JavaVirtualMachines/graalvm-ce-java11-20.0.0/Contents/Home/bin:$PATH
 
-# export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/\~}\007"'
+# RUST
+#
+export PATH="$HOME/.cargo/bin:$PATH"
+
 
 cat << EndOf
 
@@ -73,5 +74,5 @@ EndOf
 cat << EndOf
 
 General
-   JavaScript/Node:     tableflip (clean all)
+   JavaScript/Node:     jstableflip (clean all)
 EndOf

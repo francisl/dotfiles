@@ -9,6 +9,7 @@ export EDITOR="$VISUAL"
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.history
+
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export LC_ALL=en_CA.UTF-8
@@ -25,10 +26,6 @@ export PATH=/usr/local/bin:$PATH
 if [[ -d $HOME/.bin ]]; then
   export PATH=${HOME}/.bin:${PATH}
 fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # ALIASES
 ## Generic
@@ -59,7 +56,7 @@ if [[ -f $HOME/.customrc ]]; then
     . $HOME/.customrc
 fi
 
-export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/\~}\007"'
+# export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/\~}\007"'
 
 cat << EndOf
 

@@ -20,6 +20,10 @@ fi
 
 ## ZSH
 ~/dotfiles/script/zsh.sh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+## VIM
+~/dotfiles/scripts/vi/vim2.sh
 
 ## NODE
 ~/dotfiles/scripts/node/nvm.sh

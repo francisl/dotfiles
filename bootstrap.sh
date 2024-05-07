@@ -7,8 +7,6 @@ mkdir -p ~/opt
 cd ~/opt
 
 if [[ "$platform" == 'Linux' ]]; then
-    echo installing git
-    sudo apt-get install git curl
 elif [[ "$platform" == 'Darwin' ]]; then
     # Homebrew
     brewbin=`which brew`
@@ -29,3 +27,4 @@ git fetch --all
 git reset --hard origin/master
 
 ./scripts/install.sh
+

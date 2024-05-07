@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 echo "Installing NVM"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
 if [ -z "$NVM_DIR" ]
 then

@@ -12,8 +12,8 @@ if [ "$distro" = "ubuntu" ]; then
   sudo apt-get -y install neovim
 fi
 
-
-
 if [ "$distro" = "manjaro" ]; then
-  pamac install neovim
+  pamac install --no-confirm neovim
+  pamac install --no-confirm ripgrep 
+
 fi

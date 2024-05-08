@@ -8,17 +8,13 @@ cd ~/opt
 
 ## set environment for bash/ZSH
 if [[ "$platform" == 'Linux' ]]; then
-    ~/dotfiles/scripts/linux.sh
+    ./deps/linux.sh
 elif [[ "$platform" == 'Darwin' ]]; then
-    ~/dotfiles/scripts/mac.sh
+    ./deps/mac.sh
 fi
 
-if [ ! -e ~/.zsh_custom.sh ];then
-  echo >> ~/.zprofile
-  echo . ~/dotfiles/config/zsh_custom.sh >> ~/.zprofile
-fi
+./link_config.sh
 
-## ZSH
 ~/dotfiles/script/zsh.sh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 

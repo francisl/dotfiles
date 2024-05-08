@@ -1,0 +1,8 @@
+[window]
+opacity = 0.94
+blur = true
+
+[font]
+size = 10.25
+normal = { family = "Source Code Pro Light", style = "Regular" }
+

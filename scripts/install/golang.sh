@@ -5,7 +5,7 @@ read install_go
 
 # Check the user's response
 if [[ "$install_go" == "y" || "$install_go" == "Y" ]]; then
-    echo "Installing ZSH"
+    echo "Installing golang"
     cd ~/Downloads
     wget https://go.dev/dl/go1.23.1.darwin-arm64.tar.gz
     sudo tar -C /usr/local -xzf go1.23.1.darwin-arm64.tar.gz

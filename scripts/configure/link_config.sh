@@ -8,7 +8,8 @@ fi
 
 #!/usr/bin/env bash
 
-read -p "Do you want to configure aerospace? (y/n): " configure_aerospace
+echo -n "Do you want to configure aerospace? (y/n): " 
+read configure_aerospace
 
 if [[ "$configure_aerospace" == "y" || "$configure_aerospace" == "Y" ]]; then
     echo "Configuring aerospace"
@@ -17,7 +18,9 @@ else
     echo "Not configured: aerospace"
 fi
 
-read -p "Do you want to configure wezterm? (y/n): " configure_wezterm
+
+echo -n "Do you want to configure wezterm? (y/n): " 
+read configure_wezterm
 
 if [[ "$configure_wezterm" == "y" || "$configure_wezterm" == "Y" ]]; then
     echo "Configuring wezterm"

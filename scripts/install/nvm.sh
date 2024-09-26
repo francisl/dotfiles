@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 
-read -p "Do you want to install node nvm? (y/n): " install_nvm
+echo -n "Do you want to install node nvm? (y/n): " 
+read install_nvm
 
 # Check the user's response
 if [[ "$install_nvm" == "y" || "$install_nvm" == "Y" ]]; then

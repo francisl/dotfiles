@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 
-read -p "Do you want to configure neovim? (y/n): " configure_neovim
+echo -n "Do you want to configure neovim? (y/n): " 
+read configure_neovim
 
 # Check the user's response
 if [[ "$configure_neovim" == "y" || "$configure_neovim" == "Y" ]]; then

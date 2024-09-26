@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 
-read -p "Do you want to install oh-my-zsh? (y/n): " install_ohmyzsh
+echo -n "Do you want to install oh-my-zsh? (y/n): " 
+read install_ohmyzsh
 
 # Check the user's response
 if [[ "$install_ohmyzsh" == "y" || "$install_ohmyzsh" == "Y" ]]; then

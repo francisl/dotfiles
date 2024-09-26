@@ -92,8 +92,9 @@ echo "Software installation complete."
 
 
 # Prompt the user for confirmation
-read -p "Do you want to proceed with the local installation of the dotfiles project? (y/n): " install_dotfiles
-
+echo -n "Do you want to proceed with the local installation of the dotfiles project? (y/n): " 
+read install_dotfiles
+ 
 # Check the user's response
 if [[ "$install_dotfiles" == "y" || "$install_dotfiles" == "Y" ]]; then
     echo "Proceeding with the installation..."

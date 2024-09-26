@@ -14,6 +14,8 @@ zsh ~/dotfiles/scripts/apps/link_config.sh
 ## NEOVIM
 zsh ~/dotfiles/scripts/apps/neovim.sh
 
+## STARSHIP
+zsh ~/dotfiles/scripts/apps/starship.sh
 
 # RETURN HOME
 cd ~

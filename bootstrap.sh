@@ -27,6 +27,7 @@ software_list=(
     "wget"
     "font-dejavu-sans-mono-nerd-font"
     "font-droid-sans-mono-nerd-font"
+    "font-meslo-lg-nerd-font"
     "font-zed-mono-nerd-font"
     "font-space-mono-nerd-font"
     "font-victor-mono-nerd-font"

@@ -58,6 +58,7 @@ Node:
   jstableflip   |   Clean all 
 EOM
 
+source <(fzf --zsh)
 
 # #############
 # RUST

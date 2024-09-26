@@ -12,6 +12,8 @@ if [[ "$install_go" == "y" || "$install_go" == "Y" ]]; then
     if ! grep -qF 'export PATH=$PATH:/usr/local/go/bin' ~/.zshrc; then
       echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.zshrc
     fi
+
+    source ~/.zshrc
 else
     echo "Not Install: go"
 fi

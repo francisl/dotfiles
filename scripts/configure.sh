@@ -1,6 +1,9 @@
 #!/usr/bin/env zsh
 
-zsh ./link_config.sh
+
+zsh ~/dotfiles/scripts/apps/link_config.sh
+
+zsh ~/dotfiles/scripts/ssh_key.sh
 
 ## zsh
 zsh ~/dotfiles/scripts/install/oh-my-zsh.sh

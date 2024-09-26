@@ -25,6 +25,11 @@ software_list=(
     "starship"
     "tree"
     "wget"
+    "font-dejavu-sans-mono-nerd-font"
+    "font-droid-sans-mono-nerd-font"
+    "font-zed-mono-nerd-font"
+    "font-space-mono-nerd-font"
+    "font-victor-mono-nerd-font"
 )
 
 # Function to check if Homebrew is installed

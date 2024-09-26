@@ -16,6 +16,7 @@ echo " > creating aliases"
 # Utils
 ## Search
 alias grepctxt='grep -n -A 1 -B 1 --color '
+alias ls='ls --color'
 
 # SMTP SERVER DEV
 # alias smtpserv='python -m smtpd -n -c DebuggingServer localhost:1025'

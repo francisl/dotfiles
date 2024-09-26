@@ -1,7 +1,7 @@
 
 ## Install - Mac and Linux
 
-    bash <(curl -fsSL https://raw.githubusercontent.com/francisl/dotfiles/refs/heads/main/bootstrap.sh)
+    zsh <(curl -fsSL https://raw.githubusercontent.com/francisl/dotfiles/refs/heads/main/bootstrap.sh)
 
 ## Requirements
 

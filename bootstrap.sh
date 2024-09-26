@@ -22,6 +22,7 @@ software_list=(
     "fzf"
     "git"
     "jq"
+    "luarocks"
     "neovim"
     "starship"
     "tree"

@@ -11,6 +11,12 @@ if [[ "$create_ssh_key" == "y" || "$create_ssh_key" == "Y" ]]; then
   eval "$(ssh-agent -s)"
   echo -e "\nHost github.com\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/id_ed25519" >> ~/.ssh/config
   ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+  pbcopy < ~/.ssh/id_ed25519.pub
+
+  echo -e "Add the following to your github configuration (should be copied) : \n"
+  echo -e "go to https://github.com/settings/keys \n"
+  cat ~/.ssh/id_ed25519.pub
+  echo -e "\n"
 else
     echo "Not Install: ssh key"
 fi

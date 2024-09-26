@@ -19,6 +19,8 @@ if [[ "$install_nvm" == "y" || "$install_nvm" == "Y" ]]; then
   source ~/.zshenv
 
   nvm install node
+  npm install -g typescript-language-server typescript
+
 else
     echo "Not Install: nvm"
 fi

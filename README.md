@@ -3,16 +3,15 @@
 
     zsh <(curl -fsSL https://raw.githubusercontent.com/francisl/dotfiles/refs/heads/main/bootstrap.sh)
 
-## Requirements
+## Alternative install
+
+### Requirements
 
 - git
 
-## Get the repo
+### Get the repo
+    git clone git@github.com:francisl/dotfiles.git
 
-> git clone git@github.com:francisl/dotfiles.git
-
-
-## On Mac and Linux
+### Run the script
 
     ./scripts/bootstrap.sh
-

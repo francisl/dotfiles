@@ -8,6 +8,9 @@ read configure_starship
 if [[ "$configure_starship" == "y" || "$configure_starship" == "Y" ]]; then
     echo "Configuring starship"
     echo 'eval "$(starship init zsh)"' >> ~/.zshrc
+
+    echo "Configuring wezterm"
+    ln -sfn $HOME/dotfiles/config/starship.toml $HOME/.config/starship.toml
 else
     echo "Not configured: starship"
 fi

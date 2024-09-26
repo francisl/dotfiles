@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 
 echo -n "Do you want to install node nvm? (y/n): " 

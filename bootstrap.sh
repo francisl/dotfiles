@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 platform=`uname`
 
@@ -106,7 +106,7 @@ if [[ "$install_dotfiles" == "y" || "$install_dotfiles" == "Y" ]]; then
     cd ~/dotfiles
     git fetch --all
     git reset --hard origin/main
-    ./scripts/configure.sh
+    zsh ./scripts/configure.sh
 else
     echo "Installation aborted by the user."
 fi

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 #
 
 if [ ! -e ~/.zsh_custom.sh ];then

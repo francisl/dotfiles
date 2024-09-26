@@ -2,8 +2,10 @@
 #
 
 if [ ! -e ~/.zsh_custom.sh ];then
-  echo >> ~/.zprofile
-  echo '. ~/dotfiles/config/zsh_custom.sh' >> ~/.zprofile
+  if ! grep -qF '. ~/dotfiles/config/zsh_custom.sh' ~/.zprofile; then
+    echo >> ~/.zprofile
+    echo '. ~/dotfiles/config/zsh_custom.sh' >> ~/.zprofile
+fi
 fi
 
 #!/usr/bin/env bash

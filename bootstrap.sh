@@ -19,6 +19,7 @@ fi
 software_list=(
     "htop"
     "btop"
+    "cmake"
     "fzf"
     "git"
     "jq"

@@ -26,7 +26,11 @@ software_list=(
     "rg"
     "fd"
     "luarocks"
+    "lsd"
+    "lua-language-server"
     "neovim"
+    "ncdu"
+    "ranger"
     "starship"
     "tree"
     "wget"
@@ -36,11 +40,13 @@ software_list=(
     "font-zed-mono-nerd-font"
     "font-space-mono-nerd-font"
     "font-victor-mono-nerd-font"
+    "tmux"
+    "visual-studio-code"
 )
 
 # Function to check if Homebrew is installed
 check_homebrew() {
-    
+
     if ! command -v brew &> /dev/null; then
         echo "Homebrew is not installed. Installing Homebrew..."
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -80,7 +86,7 @@ install_software_linux() {
 
     if [ "$distro" = "manjaro" ]; then
     pamac install --no-confirm neovim
-    pamac install --no-confirm ripgrep 
+    pamac install --no-confirm ripgrep
 
     fi
 }
@@ -103,9 +109,9 @@ echo "Software installation complete."
 
 
 # Prompt the user for confirmation
-echo -n "Do you want to proceed with the local installation of the dotfiles project? (y/n): " 
+echo -n "Do you want to proceed with the local installation of the dotfiles project? (y/n): "
 read install_dotfiles
- 
+
 # Check the user's response
 if [[ "$install_dotfiles" == "y" || "$install_dotfiles" == "Y" ]]; then
     echo "Proceeding with the installation..."

@@ -1,0 +1,27 @@
+# theme = Glacier
+# theme = Mathias
+#theme = Monokai Remastered
+# theme = Retro
+# theme = SeaShells
+# theme = synthwave
+# theme = dark:UnderTheSea,light:Novel
+#theme = dark:UnderTheSea,light:"Builtin Tango Light"
+
+#theme = dark:UnderTheSea,light:"Material"
+theme = dark:UnderTheSea,light:"primary"
+
+# theme = Brogrammer
+# theme = BlueDolphin
+# theme = Adventure 
+
+## Light Themes
+# theme = Novel
+# theme = "Belafonte Day"
+
+font-family = "MesloLGS Nerd Font Mono"
+font-size = 13
+background-opacity = 0.9
+background-blur-radius = 6 
+
+keybind = cmd+shift+space=toggle_quick_terminal
+

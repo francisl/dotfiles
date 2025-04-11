@@ -11,9 +11,11 @@ if [[ "$install_nvm" == "y" || "$install_nvm" == "Y" ]]; then
 
   if [ -z "$NVM_DIR" ]
   then
-    echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshenv
-    echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm' >> ~/.zshenv
-    echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion' >> ~/.zshenv
+    echo 'js-nvm() {' >> ~/.zshenv
+    echo '  export NVM_DIR="$HOME/.nvm"' >> ~/.zshenv
+    echo '  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm' >> ~/.zshenv
+    echo '  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion' >> ~/.zshenv
+    echo '}' >> ~/.zshenv
   fi
 
   source ~/.zshenv

@@ -18,8 +18,10 @@ fi
 # List of software to install
 software_list=(
     "htop"
+    "bat"
     "btop"
     "cmake"
+    "fnm"
     "fzf"
     "git"
     "jq"
@@ -37,9 +39,12 @@ software_list=(
     "font-dejavu-sans-mono-nerd-font"
     "font-droid-sans-mono-nerd-font"
     "font-meslo-lg-nerd-font"
-    "font-zed-mono-nerd-font"
+    "font-source-sans-3"
+    "font-source-code-pro"
     "font-space-mono-nerd-font"
+    "font-tenor-sans"
     "font-victor-mono-nerd-font"
+    "font-zed-mono-nerd-font"
     "tmux"
     "visual-studio-code"
 )

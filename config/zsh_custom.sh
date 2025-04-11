@@ -8,6 +8,7 @@ SAVEHIST=10000
 HISTFILE=~/.history
 
 ZSH_THEME="miloshadzic"
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # ###############
 # ALIASES
@@ -59,11 +60,6 @@ Node:
 EOM
 
 source <(fzf --zsh)
-
-# #############
-# RUST
-
-#  export PATH="$HOME/.cargo/bin:$PATH"
 
 if [ -f ~/.customrc ]; then
     . ~/.customrc

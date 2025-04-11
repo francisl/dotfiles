@@ -4,7 +4,7 @@
 if [ ! -e ~/.zsh_custom.sh ];then
   if ! grep -qF '. ~/dotfiles/config/zsh_custom.sh' ~/.zprofile; then
     echo >> ~/.zprofile
-    echo '. ~/dotfiles/config/zsh_custom.sh' >> ~/.zprofile
+    echo '. ~/dotfiles/config/zsh_custom.sh' >> ~/.zshrc
 fi
 fi
 
@@ -30,3 +30,5 @@ if [[ "$configure_wezterm" == "y" || "$configure_wezterm" == "Y" ]]; then
 else
     echo "Not configured: wezterm"
 fi
+
+

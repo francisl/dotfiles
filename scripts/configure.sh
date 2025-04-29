@@ -1,4 +1,11 @@
 #!/usr/bin/env zsh
+platform=`uname`
+
+if [[ "$platform" == 'Linux' ]]; then
+    # Install software
+    zsh ~/dotfiles/scripts/linux/dependencies.sh
+elif [[ "$platform" == 'Darwin' ]]; then
+fi
 
 zsh ~/dotfiles/scripts/ssh_key.sh
 

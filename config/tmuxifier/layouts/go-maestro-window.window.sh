@@ -23,3 +23,6 @@ run_cmd "cd portal-maestro && templ generate -watch" 3
 
 # Set active pane.
 select_pane 1
+
+# HOW TO RUN USE
+# > tmuxifier load-window go-maestro-window

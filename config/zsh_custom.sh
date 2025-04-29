@@ -2,8 +2,9 @@ echo "# z_custom profile ..."
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+set -o vi
 
-HISTSIZE=10000
+HISTSIZt=10000
 SAVEHIST=10000
 HISTFILE=~/.history
 

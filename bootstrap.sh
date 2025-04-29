@@ -27,7 +27,9 @@ software_list=(
     "git"
     "ghostty"
     "go"
+    "gpg"
     "graphql-playground"
+    "gs"
     "jq"
     "rg"
     "htop"
@@ -52,12 +54,16 @@ software_list=(
     "font-tenor-sans"
     "font-victor-mono-nerd-font"
     "font-zed-mono-nerd-font"
+    "rust"
+    "tectonic"
     "tmux"
     "typescript-language-server"
     "visual-studio-code"
     "wget"
     "yazi"
+    "xh"
     "zig"
+    "TheZoraiz/ascii-image-converter/ascii-image-converter"
 )
 
 # Function to check if Homebrew is installed
@@ -94,17 +100,27 @@ install_software_linux() {
     readarray -d = -t distro <<< $distro_id
 
     if [ "$distro" = "ubuntu" ]; then
-    sudo apt-get -y install setuptools
-    sudo apt-get -y install cmake
-    sudo apt-get -y install zsh
-    sudo apt-get -y install neovim
+      sudo apt-get -y install setuptools
+      sudo apt-get -y install cmake
+      sudo apt-get -y install zsh
+      sudo apt-get -y install neovim
     fi
 
     if [ "$distro" = "manjaro" ]; then
-    pamac install --no-confirm neovim
-    pamac install --no-confirm ripgrep
-
+      pamac install --no-confirm neovim
+      pamac install --no-confirm ripgrep
     fi
+
+    if [ "$distro" = "fedora" ]; then
+      sudo dnf install -y cmake zsh neovim go zig tmux \
+          bat btop fd-find fzf git jq ripgrep htop \
+          lazygit luarocks lua lsd ncdu ranger starship \
+          tree-sitter rust cargo tectonic typescript-language-server \
+          rust-nu wget xh
+
+      # Add more packages as needed
+    fi
+
 }
 
 # Main script execution

@@ -20,15 +20,3 @@ else
     echo "Not configured: aerospace"
 fi
 
-
-echo -n "Do you want to configure wezterm? (y/n): " 
-read configure_wezterm
-
-if [[ "$configure_wezterm" == "y" || "$configure_wezterm" == "Y" ]]; then
-    echo "Configuring wezterm"
-    ln -sfn $HOME/dotfiles/config/.wezterm.lua $HOME/.wezterm.lua
-else
-    echo "Not configured: wezterm"
-fi
-
-

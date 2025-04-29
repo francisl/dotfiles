@@ -1,28 +1,21 @@
 #!/usr/bin/env zsh
 
 
-echo -n "Do you want to install node nvm? (y/n): " 
-read install_nvm
+echo -n "Do you want to install node fnm? (y/n): " 
+read install_fnm
 
 # Check the user's response
-if [[ "$install_nvm" == "y" || "$install_nvm" == "Y" ]]; then
-  echo "Installing NVM"
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-
-  if [ -z "$NVM_DIR" ]
-  then
-    echo 'js-nvm() {' >> ~/.zshenv
-    echo '  export NVM_DIR="$HOME/.nvm"' >> ~/.zshenv
-    echo '  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm' >> ~/.zshenv
-    echo '  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion' >> ~/.zshenv
-    echo '}' >> ~/.zshenv
-  fi
+if [[ "$install_fnm" == "y" || "$install_fnm" == "Y" ]]; then
+  echo "Installing FNM"
+  curl -fsSL https://fnm.vercel.app/install | bash
+  fnm completions --shell zsh
+  echo 'eval "$(fnm env --use-on-cd --shell zsh)"' >> ~/.zshenv
 
   source ~/.zshenv
 
-  nvm install node
+  fnm install node
   npm install -g typescript-language-server typescript
 
 else
-    echo "Not Install: nvm"
+    echo "Not Install: fnm"
 fi

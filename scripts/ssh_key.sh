@@ -9,14 +9,18 @@ if [[ "$create_ssh_key" == "y" || "$create_ssh_key" == "Y" ]]; then
   read email_address
   ssh-keygen -t ed25519 -C "$email_address"
   eval "$(ssh-agent -s)"
-  echo -e "\nHost github.com\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/id_ed25519" >> ~/.ssh/config
+  echo "Host github.com\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/id_ed25519" >> ~/.ssh/config
   ssh-add --apple-use-keychain ~/.ssh/id_ed25519
   pbcopy < ~/.ssh/id_ed25519.pub
 
-  echo -e "Add the following to your github configuration (should be copied) : \n"
-  echo -e "go to https://github.com/settings/keys \n"
+  echo "Add the following to your github configuration (should be copied):"
+  echo
+  echo "go to https://github.com/settings/keys"
+  echo "https://docs.github.com/fr/authentication/managing-commit-signature-verification/generating-a-new-gpg-key"
+  echo
+  echo "Add a new SSH key"
   cat ~/.ssh/id_ed25519.pub
-  echo -e "\n"
+  echo
 else
     echo "Not Install: ssh key"
 fi

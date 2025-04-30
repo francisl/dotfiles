@@ -19,7 +19,7 @@ zsh ~/dotfiles/scripts/ssh_key.sh
 zsh ~/dotfiles/scripts/install/oh-my-zsh.sh
 
 ## NODE
-zsh ~/dotfiles/scripts/install/nvm.sh
+zsh ~/dotfiles/scripts/install/node.sh
 
 ## CONFIGURE
 zsh ~/dotfiles/scripts/apps/link_config.sh

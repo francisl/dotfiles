@@ -9,9 +9,9 @@ if [[ "$install_fnm" == "y" || "$install_fnm" == "Y" ]]; then
   echo "Installing FNM"
   curl -fsSL https://fnm.vercel.app/install | bash
   fnm completions --shell zsh
-  echo 'eval "$(fnm env --use-on-cd --shell zsh)"' >> ~/.zshenv
+  echo 'eval "$(fnm env --use-on-cd --shell zsh)"' >> ~/.zshrc
 
-  source ~/.zshenv
+  source ~/.zshrc
 
   fnm install node
   npm install -g typescript-language-server typescript

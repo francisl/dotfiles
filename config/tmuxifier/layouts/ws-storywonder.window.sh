@@ -1,6 +1,6 @@
 # Set window root path. Default is `$session_root`.
 # Must be called before `new_window`.
-window_root "~/workspace/WonderTime"
+window_root "/Volumes/MacDrive/workspace/WonderTime"
 
 # Create new window. If no argument is given, window name will be based on
 # layout file name.
@@ -12,8 +12,8 @@ split_v 40
 
 # Run commands.
 run_cmd "nvim" 1
-run_cmd "cd WonderTime/frontend && npm run dev" 2     # runs in active pane
-run_cmd "cd WonderTime/frontend && nu" 3
+run_cmd "cd WonderTime && npm run dev" 2     # runs in active pane
+run_cmd "cd WonderTime && nu" 3
 
 # Set active pane.
 select_pane 1

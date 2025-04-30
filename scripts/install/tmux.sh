@@ -15,8 +15,6 @@ if [[ "$configure_tmux" == "y" || "$configure_tmux" == "Y" ]]; then
   echo 'export PATH="$HOME/.tmuxifier/bin:$PATH"' >> ${HOME}/.zshrc
   echo 'export TMUXIFIER_LAYOUT_PATH="$HOME/dotfiles/config/tmuxifier/layouts"' >> ${HOME}/.zshrc
   echo 'eval "$(tmuxifier init -)"' >> ${HOME}/.zshrc
-
-  
 else
   echo "Not configured: tmux"
-f
+fi

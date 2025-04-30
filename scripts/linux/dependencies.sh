@@ -43,7 +43,7 @@ function install_software_generic() {
 
 # Main function to detect the distribution and install software
 install_software_linux() {
-    distro=`cat /etc/os-release | grep "^ID="`
+    distro=`cat /etc/os-release | grep "^ID=" | cut -d= -f2`
 
     if [ "$distro" = "ubuntu" ]; then
         install_software_ubuntu

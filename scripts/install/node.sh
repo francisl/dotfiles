@@ -18,7 +18,7 @@ if [[ "$install_fnm" == "y" || "$install_fnm" == "Y" ]]; then
 
   source ~/.zshrc
 
-  fnm install node
+  fnm install 22
   npm install -g typescript-language-server typescript
 
 else

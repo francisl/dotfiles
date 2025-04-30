@@ -1,6 +1,9 @@
 # Default terminal
 set $term ghostty
 
+# Variables
+set $mod Mod4
+
 # Input configuration
 input * {
     xkb_layout us
@@ -70,9 +73,6 @@ bar {
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec wofi --show drun
-
-# Variables
-set $mod Mod4
 
 # Colors
 client.focused #4c7899 #285577 #ffffff

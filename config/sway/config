@@ -27,37 +27,10 @@ output HDMI-A-2 {
     pos 3840 0
 }
 
-# Tablet mode detection and configuration
-bindswitch tablet:on {
-    # Disable keyboard
-    input type:keyboard {
-        events disabled
-    }
-    
-    # Increase scaling for tablet mode
-    output eDP-1 scale 1.5
-    
-    # Increase font size
-    font pango:monospace 12
-    
-    # Rotate display
-    output eDP-1 transform 90
-}
-
-bindswitch tablet:off {
-    # Re-enable keyboard
-    input type:keyboard {
-        events enabled
-    }
-    
-    # Reset scaling
-    output eDP-1 scale 1
-    
-    # Reset font size
-    font pango:monospace 10
-    
-    # Reset rotation
-    output eDP-1 transform normal
+# Tablet mode configuration
+seat seat0 {
+    xcursor_theme Adwaita 24
+    hide_cursor when-typing enable
 }
 
 # Default workspace layout

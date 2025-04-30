@@ -105,6 +105,7 @@ ctrl-shift-l = ['join-with right', 'mode main']
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-semicolon = 'mode service'
 alt-w = 'mode windows'
+alt-r = 'mode resize'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 alt-shift-h = 'move left'
@@ -153,12 +154,19 @@ shift-q = ['close-all-windows-but-current', 'mode main']
 esc = 'mode main'
 minus = 'resize smart -50'
 equal = 'resize smart +50'
-alt-h = 'move-node-to-monitor left'
-alt-j = 'move down'
-alt-k = 'move up'
-alt-l = 'move-node-to-monitor right'
-alt-shift-h = ['move-workspace-to-monitor left', 'mode main']
-alt-shift-l = ['move-workspace-to-monitor right', 'mode main']
+alt-h = ['move-node-to-monitor left', 'focus --boundaries all-monitors-outer-frame left']
+alt-j = ['move-node-to-monitor down', 'focus down']
+alt-k = ['move-node-to-monitor up', 'focus up']
+alt-l = ['move-node-to-monitor right', 'focus --boundaries all-monitors-outer-frame right']
+alt-shift-h = ['move-workspace-to-monitor left', 'focus --boundaries all-monitors-outer-frame left', 'mode main']
+alt-shift-l = ['move-workspace-to-monitor right', 'focus --boundaries all-monitors-outer-frame right', 'mode main']
+
+[mode.resize.binding]      # 2. Declare 'windows' binding mode
+esc = 'mode main'
+minus = 'resize smart -50'
+equal = 'resize smart +50'
+alt-h = 'resize smart -50'
+alt-l = 'resize smart +50'
 
 
 [workspace-to-monitor-force-assignment]

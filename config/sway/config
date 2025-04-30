@@ -1,0 +1,80 @@
+# Default terminal
+set $term ghostty
+
+# Input configuration
+input * {
+    xkb_layout us
+    xkb_variant intl
+}
+
+# Output configuration for laptop display
+output eDP-1 {
+    scale 1
+    pos 0 0
+}
+
+# Output configuration for external monitors
+output HDMI-A-1 {
+    scale 1
+    pos 1920 0
+}
+
+output HDMI-A-2 {
+    scale 1
+    pos 3840 0
+}
+
+# Tablet mode detection and configuration
+bindswitch tablet:on {
+    # Disable keyboard
+    input type:keyboard {
+        events disabled
+    }
+    
+    # Increase scaling for tablet mode
+    output eDP-1 scale 1.5
+    
+    # Increase font size
+    font pango:monospace 12
+    
+    # Rotate display
+    output eDP-1 transform 90
+}
+
+bindswitch tablet:off {
+    # Re-enable keyboard
+    input type:keyboard {
+        events enabled
+    }
+    
+    # Reset scaling
+    output eDP-1 scale 1
+    
+    # Reset font size
+    font pango:monospace 10
+    
+    # Reset rotation
+    output eDP-1 transform normal
+}
+
+# Default workspace layout
+workspace_layout tabbed
+
+# Status bar
+bar {
+    position top
+    status_command while date +'%Y-%m-%d %H:%M:%S'; do sleep 1; done
+}
+
+# Key bindings
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+q kill
+bindsym $mod+d exec wofi --show drun
+
+# Variables
+set $mod Mod4
+
+# Colors
+client.focused #4c7899 #285577 #ffffff
+client.unfocused #333333 #222222 #888888
+client.focused_inactive #333333 #5f676a #ffffff 

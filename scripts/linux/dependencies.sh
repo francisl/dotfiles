@@ -17,7 +17,8 @@ install_software_manjaro() {
 # Function to install software on Fedora
 install_software_fedora() {
     echo "Detected Fedora. Installing software using dnf..."
-    sudo dnf install -y cmake zsh neovim go zig tmux \
+    sudo dnf install -y zsh neovim go zig tmux \
+        gcc gcc-c++ make cmake clang clang-devel \
         bat btop fd-find fzf git jq ripgrep htop \
         lazygit luarocks lua lsd ncdu ranger starship \
         tree-sitter rust cargo tectonic typescript-language-server \
@@ -27,7 +28,9 @@ install_software_fedora() {
     sudo dnf install fedora-workstation-repositories
     sudo dnf config-manager setopt google-chrome.enabled=1
     sudo dnf install google-chrome-stable
-    sudo dnf group install sway-desktop-environment
+    # sudo dnf group install sway-desktop-environment
+    sudo dnf copr enable solopasha/hyprland
+    sudo dnf install hyprland hyprpaper hyprpicker hypridle hyprshot waybar hyprlock hyprsunset 
 
 }
 

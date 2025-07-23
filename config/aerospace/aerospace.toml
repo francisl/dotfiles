@@ -86,9 +86,9 @@ outer.right =      4
 # '''
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-alt-space = 'layout tiles horizontal vertical'
-alt-comma = 'layout accordion horizontal vertical'
-alt-period = 'layout floating'
+alt-comma = 'layout tiles accordion'
+alt-period = 'layout horizontal vertical'
+# alt-f = 'layout tiles floating'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 alt-h = 'focus --boundaries all-monitors-outer-frame left'
@@ -165,8 +165,6 @@ alt-shift-l = ['move-workspace-to-monitor right', 'focus --boundaries all-monito
 esc = 'mode main'
 minus = 'resize smart -50'
 equal = 'resize smart +50'
-alt-h = 'resize smart -50'
-alt-l = 'resize smart +50'
 
 
 [workspace-to-monitor-force-assignment]

@@ -20,9 +20,9 @@ install_software_fedora() {
     sudo dnf install -y zsh neovim go zig tmux \
         gcc gcc-c++ make cmake clang clang-devel \
         bat btop fd-find fzf git jq ripgrep htop \
-        lazygit luarocks lua lsd ncdu ranger starship \
-        tree-sitter rust cargo tectonic typescript-language-server \
-        rust-nu wget xh
+        luarocks lua lsd ncdu ranger \
+        tree-sitter rust cargo typescript-language-server \
+        rust-nu wget xh ghostty
     # Install Chrome
 
     sudo dnf install fedora-workstation-repositories

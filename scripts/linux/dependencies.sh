@@ -6,6 +6,7 @@ install_software_ubuntu() {
     sudo apt-get -y install cmake
     sudo apt-get -y install zsh
     sudo apt-get -y install neovim
+    sudo apt-get -y install helix
 }
 
 # Function to install software on Manjaro
@@ -22,8 +23,8 @@ install_software_fedora() {
         bat btop fd-find fzf git jq ripgrep htop \
         luarocks lua lsd ncdu ranger \
         tree-sitter rust cargo typescript-language-server \
-        rust-nu wget xh ghostty
-    # Install Chrome
+        rust-nu wget xh ghostty helix
+     # Install Chrome
 
     sudo dnf install fedora-workstation-repositories
     sudo dnf config-manager setopt google-chrome.enabled=1

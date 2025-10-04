@@ -20,3 +20,15 @@ else
     echo "Not configured: aerospace"
 fi
 
+# Configure Niri
+zsh ~/dotfiles/scripts/apps/niri.sh
+
+# Configure Waybar
+zsh ~/dotfiles/scripts/apps/waybar.sh
+
+# Configure Rofi
+zsh ~/dotfiles/scripts/apps/rofi.sh
+
+# Configure Ghostty
+zsh ~/dotfiles/scripts/apps/ghostty.sh
+

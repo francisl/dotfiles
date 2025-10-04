@@ -1,0 +1,65 @@
+// Add these custom module definitions to your config.jsonc
+
+// 1. System Load Monitor
+"custom/system-load": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/system_load.sh",
+    "interval": 5,
+    "tooltip": true,
+    "tooltip-format": "System Load: {}",
+    "on-click": "kitty -e htop"
+},
+
+// 2. Weather Display  
+"custom/weather": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/weather.sh",
+    "interval": 300, // Update every 5 minutes
+    "tooltip": true,
+    "tooltip-format": "Weather: {}",
+    "on-click": "firefox https://weather.com"
+},
+
+// 3. Uptime Display
+"custom/uptime": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/uptime.sh", 
+    "interval": 60, // Update every minute
+    "tooltip": true,
+    "tooltip-format": "System uptime: {}"
+},
+
+// 4. Simple Text Module (no script needed)
+"custom/separator": {
+    "format": "│",
+    "tooltip": false
+},
+
+// 5. Interactive Script Module
+"custom/theme-toggle": {
+    "format": "🎨",
+    "tooltip": true,
+    "tooltip-format": "Click to change theme",
+    "on-click": "~/.config/waybar/theme_select.sh",
+    "on-click-right": "echo 'Right clicked!'"
+},
+
+// 6. Module with Dynamic Format
+"custom/disk-usage": {
+    "format": "💾 {}",
+    "exec": "df -h / | awk 'NR==2{print $5}' | sed 's/%//'", 
+    "interval": 30,
+    "tooltip": true,
+    "tooltip-format": "Root disk usage: {}%",
+    "on-click": "kitty -e ncdu /"
+}
+
+// To use these, add them to your modules-left, modules-center, or modules-right arrays
+// For example:
+// "modules-right": [
+//     "group/system",
+//     "custom/system-load",
+//     "custom/weather", 
+//     "custom/uptime",
+//     "custom/exit"
+// ]

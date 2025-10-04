@@ -1,0 +1,58 @@
+#!/bin/bash
+#                    __
+#  _    _____ ___ __/ /  ___ _____
+# | |/|/ / _ `/ // / _ \/ _ `/ __/
+# |__,__/\_,_/\_, /_.__/\_,_/_/
+#            /___/
+
+exec 200>/tmp/waybar-launch.lock
+flock -n 200 || exit 0
+
+# -----------------------------------------------------
+# Quit all running waybar instances
+# -----------------------------------------------------
+killall waybar || true
+pkill waybar || true
+
+# Use provided theme, active_themes file, or default
+if [ -n "$1" ]; then
+    themestyle="$1"
+elif [ -f ~/.config/waybar/active_themes ]; then
+    themestyle=$(cat ~/.config/waybar/active_themes)
+    echo ":: Using saved theme from active_themes file"
+else
+    themestyle="default;ml4w-modern/light"
+    echo ":: Using default theme"
+fi
+
+echo ":: Theme string: $themestyle"
+IFS=';' read -a arrThemes <<<"$themestyle"
+echo ":: Theme base: ${arrThemes[0]}"
+echo ":: Theme variant: ${arrThemes[1]}"
+
+# -----------------------------------------------------
+# Loading the configuration
+# -----------------------------------------------------
+config_file="config"
+style_file="style.css"
+
+# Standard files can be overwritten with an existing config-custom or style-custom.css
+if [ -f ~/.config/waybar/themes/${arrThemes[0]}/config-custom ]; then
+    config_file="config-custom"
+fi
+if [ -f ~/.config/waybar/themes/${arrThemes[1]}/style-custom.css ]; then
+    style_file="style-custom.css"
+fi
+
+# Build the paths
+config_path="$HOME/.config/waybar/themes/${arrThemes[0]}/$config_file"
+style_path="$HOME/.config/waybar/themes/${arrThemes[1]}/$style_file"
+
+echo ":: Config path: $config_path"
+echo ":: Style path: $style_path"
+
+waybar -c "$config_path" -s "$style_path" &
+
+# Explicitly release the lock (optional) -> flock releases on exit
+flock -u 200
+exec 200>&-

@@ -29,6 +29,7 @@ install_software_fedora() {
     sudo dnf install fedora-workstation-repositories
     sudo dnf config-manager setopt google-chrome.enabled=1
     sudo dnf install google-chrome-stable
+    sudo dnf install iosevka-nerd-fonts
     # sudo dnf group install sway-desktop-environment
     sudo dnf copr enable solopasha/hyprland
     sudo dnf install hyprland hyprpaper hyprpicker hypridle hyprshot waybar hyprlock hyprsunset waypaper

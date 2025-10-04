@@ -1,0 +1,84 @@
+#!/bin/bash
+#  _____ _                                       _ _       _
+# |_   _| |__   ___ _ __ ___   ___  _____      _(_) |_ ___| |__   ___ _ __
+#   | | | '_ \ / _ \ '_ ` _ \ / _ \/ __\ \ /\ / / | __/ __| '_ \ / _ \ '__|
+#   | | | | | |  __/ | | | | |  __/\__ \\ V  V /| | || (__| | | |  __/ |
+#   |_| |_| |_|\___|_| |_| |_|\___||___/ \_/\_/ |_|\__\___|_| |_|\___|_|
+#
+# by Stephan Raabe (2024)
+# -----------------------------------------------------
+
+# -----------------------------------------------------
+# Default theme folder
+# -----------------------------------------------------
+themes_path="$HOME/.config/waybar/themes"
+
+# -----------------------------------------------------
+# Initialize arrays
+# -----------------------------------------------------
+listNames=""
+listNames2=""
+
+# -----------------------------------------------------
+# Scan themes and detect variants
+# -----------------------------------------------------
+for theme_dir in "$themes_path"/*/; do
+    theme_name=$(basename "$theme_dir")
+    
+    # Skip assets directory
+    if [ "$theme_name" = "assets" ]; then
+        continue
+    fi
+    
+    # Check for variant directories (light, dark, black, white, colored)
+    variants=$(find "$theme_dir" -maxdepth 1 -type d \( -name "light" -o -name "dark" -o -name "black" -o -name "white" -o -name "colored" \) | sed "s|$theme_dir||g" | sort)
+    
+    if [ -n "$variants" ]; then
+        # Theme has variants - create entries for each variant
+        for variant in $variants; do
+            display_name="$theme_name $variant"
+            theme_path="$theme_name;$theme_name/$variant"
+            
+            listNames+="$display_name\n"
+            listNames2+="$theme_path~"
+        done
+    else
+        # Single theme without variants
+        display_name="$theme_name"
+        theme_path="$theme_name;$theme_name"
+        
+        listNames+="$display_name\n"
+        listNames2+="$theme_path~"
+    fi
+done
+
+# -----------------------------------------------------
+# Show rofi dialog
+# -----------------------------------------------------
+echo "Available themes:"
+echo -e "$listNames"
+echo "Theme paths:"
+echo "$listNames2"
+
+# Remove trailing newline and tilde
+listNames=${listNames::-2}
+listNames2=${listNames2::-1}
+
+choice=$(echo -e "$listNames" | rofi -dmenu -replace -i -no-show-icons -width 30 -p "Themes" -format i)
+
+# -----------------------------------------------------
+if [ "$choice" ]; then
+    echo "Loading waybar theme..."
+    
+    # Convert choice to array index and get the theme path
+    IFS="~"
+    read -ra theme_paths <<<"$listNames2"
+    selected_theme="${theme_paths[$choice]}"
+    
+    echo "Selected theme: $selected_theme"
+    
+    # Save the selected theme to active_themes file
+    echo "$selected_theme" > ~/.config/waybar/active_themes
+    
+    ~/.config/waybar/launch.sh "$selected_theme"
+fi

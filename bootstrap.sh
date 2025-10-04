@@ -116,7 +116,7 @@ install_software_linux() {
           bat btop fd-find fzf git jq ripgrep htop \
           lazygit luarocks lua lsd ncdu ranger starship \
           tree-sitter rust cargo tectonic typescript-language-server \
-          rust-nu wget xh
+          rust-nu wget xh niri waybar rofi waypaper
 
       # Add more packages as needed
     fi
